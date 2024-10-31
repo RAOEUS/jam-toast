@@ -96,6 +96,7 @@
 
 .toast-warning {
   background-color: #ffc107;
+  color: black;
 }
 
 .toast-error {
