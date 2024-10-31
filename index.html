@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toast Notification Library</title>
+  <link rel="stylesheet" href="jam-toast.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    div.center {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #show-toast {
+      padding: 1rem 2rem;
+      font-size: 2em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="center">
+    <button id="show-toast">Show Toast</button>
+  </div>
+
+  <script type="module">
+    import { JamToast } from './jam-toast.js';
+
+    const myToast = new JamToast({ maxCount: 10, timeout: 5000, position: 'bottom-right' });
+
+    // Test different types of toast notifications
+    document.querySelector('#show-toast').addEventListener('click', () => {
+      const types = ['info', 'success', 'warning', 'error'];
+      const type = types[Math.floor(Math.random() * types.length)];
+      myToast.showToast(`This is a ${type} message!`, type);
+    });
+  </script>
+
+</body>
+
+</html>
